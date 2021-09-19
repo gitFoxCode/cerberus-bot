@@ -1,5 +1,5 @@
+![Cerberus discord bot logo](docs/logo.png)
 # Cerberus BOT
-
 Discord bot working on discord.js v.13 
 ## Installation
 
@@ -10,6 +10,7 @@ npm i -g nodemon
 npm install
 ```
 - Create .env file at ./src
+- Modify ./src/config.js
 
 **.env**:
 ```env

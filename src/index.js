@@ -30,17 +30,29 @@ client.once('ready', async ()=>{
     await require('./handlers/emojis.js')(client)
     await require('./handlers/helpers.js')(client)
 
-    client.session = new Map()
+    await require('./modules/covidStats.js')(client, Discord)
+
+    //client.session = new Map()
+    client.session = {}
     client.guilds.cache.forEach((server)=>{
-        client.session.set(server.id, {})
+        client.session[server.id] = {}
     })
 
     client.botOptions = new Map()
     client.botOptions.set('prefix', prefix)
 
 })
-
+const MINIMALIZM = []
 client.on('messageCreate', async(message) => {
+
+    if(message.channelId == "855435262352293928"){
+        let author = message.author.username
+        let content = message.content
+        MINIMALIZM.push({author, content})
+        console.log(`[minimalizm]`, author, content)
+    }
+
+
     if(!message.content.startsWith(prefix) || message.author.bot) return
     try{
         const args = message.content.substring(prefix.length).split(/ +/)
@@ -50,6 +62,9 @@ client.on('messageCreate', async(message) => {
             const aliasCmd = cmd.alias ? cmd.alias.find((alias) => alias === commandArg) : false
             if(aliasCmd) return cmd
         })
+        if(command == "minimalizm"){
+            console.log(MINIMALIZM)
+        }
 
         if(typeof command == "undefined"){
             let suggestion = didYouMean(commandArg, [...client.commands.keys()])

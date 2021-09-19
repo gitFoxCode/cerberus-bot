@@ -1,4 +1,4 @@
-![Cerberus discord bot logo](docs/logo.png)
+![Cerberus discord bot logo](https://user-images.githubusercontent.com/24279375/133934889-dd97a815-db66-4d21-adcd-e35cf10cfadf.png)
 # Cerberus BOT
 Discord bot working on discord.js v.13 
 ## Installation

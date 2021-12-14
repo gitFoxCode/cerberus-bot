@@ -86,7 +86,7 @@ client.on('messageCreate', async(message) => {
         console.error(`[!][Message Error]`, err)
     }
 })
-
+console.log(`Token: ${process.env.BOT_TOKEN}`)
 client.login(process.env.BOT_TOKEN).catch((err)=>{
     console.error(`❌ Invalid Token! (${process.env.BOT_TOKEN})`, err)
 })
